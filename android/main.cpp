@@ -107,12 +107,13 @@ void init(struct android_app* app)
     }
 
 
-    //loki_init();
+    loki_init();
 
 }
 
 void tick()
 {
+    loki_main();
     if (g_EglDisplay == EGL_NO_DISPLAY)
         return;
     glClear(GL_COLOR_BUFFER_BIT);

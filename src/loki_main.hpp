@@ -3,7 +3,7 @@
 
 void loki_init();
 
-ImVec4 loki_main();
+void loki_main();
 
 
 void loki_destroy();

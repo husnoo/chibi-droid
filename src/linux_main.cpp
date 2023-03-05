@@ -4,13 +4,13 @@
 int main(int, char**)
 {
 
-    //loki_init();
+    loki_init();
     
     // Main loop
     while (1) {
-        //loki_main();        
+        loki_main();        
     }
     
-    //loki_destroy();
+    loki_destroy();
     return 0;
 }

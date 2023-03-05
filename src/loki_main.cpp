@@ -73,7 +73,7 @@ void scheme_init() {
         sexp_add_module_directory(ctx, tmp=sexp_c_string(ctx,include_path2,-1), SEXP_FALSE);
 
     #else
-        char include_path3[] = "/home/nawal/data/loki-core/deps/chibi-scheme-static/lib";
+        char include_path3[] = "/home/nawal/data/chibi-droid/deps/chibi-scheme-static/lib";
         sexp_add_module_directory(ctx, tmp=sexp_c_string(ctx,include_path3,-1), SEXP_FALSE);
     #endif
 
@@ -128,12 +128,15 @@ void loki_init() {
     sexp_debug(ctx, "obj1: ", obj1);
     check_exception(ctx, obj1);
 
+    obj1 = sexp_eval_string(ctx, "(directory-files \"/\")", -1, NULL);
+    sexp_debug(ctx, "obj1: ", obj1);
+    check_exception(ctx, obj1);
+
     #ifdef __ANDROID__          
         __android_log_print(ANDROID_LOG_VERBOSE, APPNAME, "stdout: %s", buf_out);
         __android_log_print(ANDROID_LOG_VERBOSE, APPNAME, "stderr: %s", buf_err);
         __android_log_print(ANDROID_LOG_VERBOSE, APPNAME, "LOKI ----------\n");
     #endif
-
     sexp_eval_string(ctx, "(define (scm_loop) '()", -1, NULL);
 }
 
@@ -141,7 +144,7 @@ void loki_init() {
 
 
 
-ImVec4 loki_main() {
+void loki_main() {
     sexp_eval_string(ctx, "(scm_loop)", -1, NULL);
 }
 
