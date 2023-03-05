@@ -177,7 +177,7 @@ void android_main(struct android_app* app)
 
     
     app->onAppCmd = handleAppCmd;
-    app->onInputEvent = handleInputEvent;
+    //app->onInputEvent = handleInputEvent;
 
     while (true)
     {

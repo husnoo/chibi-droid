@@ -128,7 +128,11 @@ void loki_init() {
     sexp_debug(ctx, "obj1: ", obj1);
     check_exception(ctx, obj1);
 
-    obj1 = sexp_eval_string(ctx, "(directory-files \"/\")", -1, NULL);
+    #ifdef __ANDROID__    
+        obj1 = sexp_eval_string(ctx, "(directory-files \"/sdcard/\")", -1, NULL);
+    #else
+        obj1 = sexp_eval_string(ctx, "(directory-files \"/\")", -1, NULL);
+    #endif
     sexp_debug(ctx, "obj1: ", obj1);
     check_exception(ctx, obj1);
 
